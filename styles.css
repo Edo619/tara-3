@@ -1,0 +1,100 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Palette ===== */
+:root {
+  --olive: #6b7f5a;
+  --olive-dark: #4e5f44;
+  --brown: #6b4f3f;
+  --paper: #f2ede4;
+  --ink: #3a3632;
+}
+
+/* ===== Background ===== */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--olive), var(--brown));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+}
+
+/* ===== Card ===== */
+.card {
+  width: 90%;
+  max-width: 680px;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Breathing / floating */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ===== Letter ===== */
+.letter {
+  background: var(--paper);
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow:
+    0 25px 40px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(0,0,0,0.05);
+  position: relative;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+/* Handwritten header */
+.letter h1 {
+  font-family: "Caveat", cursive;
+  font-size: 2.6rem;
+  margin-bottom: 1.5rem;
+  color: var(--olive-dark);
+}
+
+/* Text */
+.letter p {
+  font-family: "Caveat", cursive;
+  font-size: 1.5rem;
+  line-height: 1.75;
+  margin-bottom: 1.2rem;
+  color: var(--ink);
+}
+
+.signature {
+  margin-top: 2rem;
+  font-family: "Caveat", cursive;
+  font-size: 1.5rem;
+}
+
+/* ===== Photo ===== */
+.photo-frame {
+  margin-top: 2.5rem;
+  padding: 12px;
+  background: var(--brown);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+.photo-frame img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  filter: sepia(15%) contrast(1.05);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .letter {
+    padding: 2rem;
+  }
+
+  .letter h1 {
+    font-size: 2.2rem;
+  }
+}
