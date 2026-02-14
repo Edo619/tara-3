@@ -29,18 +29,50 @@
       <p>
         Ovo je samo mali podsetnik da te volim.
       </p>
+      <p id="countdown"></p>
 
-      <a href="https://drive.google.com/drive/folders/1XgleUVUmsTjraKnO8nJNEakhjdpa_c5f?usp=sharing" class="gift-link">Otvori poklon</a>
+      <a href="https://drive.google.com/drive/folders/1XgleUVUmsTjraKnO8nJNEakhjdpa_c5f?usp=sharing" id="gift-link" class="gift-link">Otvori poklon 🎁💐</a>
       <p class="signature">
         Zauvek,<br>
         ❤️
       </p>
 
       <div class="photo-frame">
-        <img src="photo.jpeg" alt="Mi">
+        <img src="photo.jpeg" alt="Naša super kul slika" class="photo" />
       </div>
+      <p>Naša super kul slika</p>
+      <p class="ps">
+        P.S. Izvini što si dugo čekala ovakav poklon, morao sam da imam dovoljno vremena da se potrudim da bude najbolji :).
+      </p>
     </div>
   </div>
 
 </body>
+<script>
+  const target = new Date("2026-02-14T00:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      document.getElementById("countdown").innerHTML = 'Poklon je spreman 💌<br>';
+      document.getElementById("gift-link").style.display = 'inline-block';
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("gift-link").style.display = 'none';
+    document.getElementById("countdown").innerHTML  =
+      `Trenutno pakujemo poklon 📦 (budite strpljivi)<br> Još samo: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
 </html>
